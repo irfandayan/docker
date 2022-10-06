@@ -12,8 +12,13 @@ COPY package.json .
 RUN npm install
 
 # left dot points to this local direcotry and dot on right points to the container root direcotry /app
-COPY . .
+COPY . . 
 
 EXPOSE 80
 
-CMD ["node", "server.js"]
+# anonymous volume
+# it does not persists data so use named volumes in run command
+#VOLUME [ "/app/feedback" ]
+#VOLUME ["/app/node_modules"]
+
+CMD ["npm", "start"]

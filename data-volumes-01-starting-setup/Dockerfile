@@ -1,6 +1,9 @@
 # set base image with version
 FROM node:14
 
+
+
+
 # set working directory in container 
 WORKDIR /app
 
@@ -14,7 +17,14 @@ RUN npm install
 # left dot points to this local direcotry and dot on right points to the container root direcotry /app
 COPY . . 
 
-EXPOSE 80
+ENV PORT $DEFAULT_PORT
+# ENV PORT 80
+
+# argument
+ARG DEFAULT_PORT=80
+
+EXPOSE $PORT
+# EXPOSE 80
 
 # anonymous volume
 # it does not persists data so use named volumes in run command

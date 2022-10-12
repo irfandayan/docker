@@ -54,3 +54,5 @@ volumes:
 #Note:
 # 80 is default port of server so below
 # localhost/goals is relaced with localhost:8000/goals
+
+# For some reason volumes are not working......
